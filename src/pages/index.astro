@@ -59,7 +59,7 @@
    {
     console.log(value);
 	message = new Paho.MQTT.Message(value + "");
-	message.destinationName = "entrada";
+	message.destinationName = "entradaMario";
 	client.send(message);
    }
   </script>
