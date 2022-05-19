@@ -8,8 +8,8 @@
   <h1>Iot 1</h1>
   <div id="display"></div>
   <div id="status">Desconectado</div> <br>
-  <button onClick="command(0)" type="button">Animacion 1</button> <br /><br />
-  <button onClick="command(1)" type="button">Animacion 2</button> <br /><br />
+  <button onClick="command(1)" type="button">Encender</button> <br><br>
+  <button onClick="command(0)" type="button">Apagar</button> <br>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js"></script>
@@ -51,7 +51,7 @@
    
    function onConnectionLost(responseObject)
    {
-    if(responseObject.errorCode != 0)
+    if(responseObject.errorCode == 0)
 	 console.log("onConnectionLost: " + responseObject.errorMessage);
    }
    
@@ -59,7 +59,7 @@
    {
     console.log(value);
 	message = new Paho.MQTT.Message(value + "");
-	message.destinationName = "entrada_KmMelMar";
+	message.destinationName = "entradaMario";
 	client.send(message);
    }
   </script>
